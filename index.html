@@ -10,6 +10,7 @@
     <form>
       <input type="text" />
       <button type="submit">fasdfas</button>
+      <h1></h1>
     </form>
 
     <script>
@@ -26,10 +27,16 @@
         };
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const applePaySession = new window.ApplePaySession(1, paymentRequest);
-        console.log(applePaySession);
-        const x = applePaySession.begin();
-        console.log(x);
+        try {
+          const applePaySession = new window.ApplePaySession(1, paymentRequest);
+          console.log(applePaySession);
+          const x = applePaySession.begin();
+          console.log(x);
+        } catch (error) {
+          console.log(12312);
+          console.log('erro1r', error);
+          document.querySelector('h1').innerHTML = `${error}`;
+        }
       };
       document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
