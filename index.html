@@ -1,41 +1,43 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css><link href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet integrity=sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN crossorigin=anonymous><title>Employee Manager</title></head><body><div id=app></div><script src=https://code.jquery.com/jquery-3.3.1.js integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js></script><script type=text/javascript src=/static/js/manifest.accf5adac51809e32986.js></script><script type=text/javascript src=/static/js/vendor.348ca7dfb9168c073449.js></script><script type=text/javascript src=/static/js/app.f22dfdb786de6279d5b1.js></script>
-  
-<button
-type="button"
-id="qaq"
->
-Pay with apple
-</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" />
+      <button>fasdfas</button>
+    </form>
 
-<script>
-
-
-    const payWith = () => {
-  const paymentRequest = {
-    total: {
-      label: 'samokat.ru',
-      amount: 50,
-    },
-    countryCode: 'RU',
-    currencyCode: 'RUB',
-    merchantCapabilities: ['supports3DS'],
-    supportedNetworks: ['masterCard', 'visa'],
-  };
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const applePaySession = new window.ApplePaySession(1, paymentRequest);
-  console.log(applePaySession);
-  const x = applePaySession.begin();
-  console.log(x);
-}
-
-document.getElementById("qaq").addEventListener("click", payWith)
-    setTimeout(() => {
-payWith()
-  
-}, 5000);
-
-  </script>
-  
-  
-  </body></html>
+    <script>
+      const payWith = () => {
+        const paymentRequest = {
+          total: {
+            label: 'samokat.ru',
+            amount: 50,
+          },
+          countryCode: 'RU',
+          currencyCode: 'RUB',
+          merchantCapabilities: ['supports3DS'],
+          supportedNetworks: ['masterCard', 'visa'],
+        };
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const applePaySession = new window.ApplePaySession(1, paymentRequest);
+        console.log(applePaySession);
+        const x = applePaySession.begin();
+        console.log(x);
+      };
+      document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        payWith();
+      });
+      setTimeout(() => {
+        document.querySelector('form').submit();
+      }, 1000);
+    </script>
+  </body>
+</html>
