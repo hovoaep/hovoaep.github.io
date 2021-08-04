@@ -14,37 +14,38 @@
     </form>
 
     <script>
-      const payWith = () => {
-        const paymentRequest = {
-          total: {
-            label: 'samokat.ru',
-            amount: 50,
-          },
-          countryCode: 'RU',
-          currencyCode: 'RUB',
-          merchantCapabilities: ['supports3DS'],
-          supportedNetworks: ['masterCard', 'visa'],
-        };
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        try {
-          const applePaySession = new window.ApplePaySession(1, paymentRequest);
-          console.log(applePaySession);
-          const x = applePaySession.begin();
-          console.log(x);
-        } catch (error) {
-          console.log(12312);
-          console.log('erro1r', error);
-          document.querySelector('h1').innerHTML = `${error}`;
-        }
-      };
-      document.querySelector('form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        payWith();
-      });
-//       setTimeout(() => {
-//         document.querySelector('button').click();
-//       }, 1000);
+      console.log(window.opener);
+      // const payWith = () => {
+      //   const paymentRequest = {
+      //     total: {
+      //       label: 'samokat.ru',
+      //       amount: 50,
+      //     },
+      //     countryCode: 'RU',
+      //     currencyCode: 'RUB',
+      //     merchantCapabilities: ['supports3DS'],
+      //     supportedNetworks: ['masterCard', 'visa'],
+      //   };
+      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //   // @ts-ignore
+      //   try {
+      //     const applePaySession = new window.ApplePaySession(1, paymentRequest);
+      //     console.log(applePaySession);
+      //     const x = applePaySession.begin();
+      //     console.log(x);
+      //   } catch (error) {
+      //     console.log(12312);
+      //     console.log('erro1r', error);
+      //     document.querySelector('h1').innerHTML = `${error}`;
+      //   }
+      // };
+      // document.querySelector('form').addEventListener('submit', (e) => {
+      //   e.preventDefault();
+      //   payWith();
+      // });
+      //       setTimeout(() => {
+      //         document.querySelector('button').click();
+      //       }, 1000);
     </script>
   </body>
 </html>
