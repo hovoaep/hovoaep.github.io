@@ -4,59 +4,72 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Что-то пошло не так</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        overflow: hidden;
+        font-family: -apple-system, system-ui, Helvetica Neue, Roboto,
+          sans-serif;
+        text-align: center;
+        background: #ffffff;
+        height: 90vh;
+        padding: 0;
+        margin: 0;
+      }
+
+      main {
+        padding: 12px;
+        padding-bottom: 50px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      header {
+        padding-top: 60px;
+      }
+
+      h1 {
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #000000;
+      }
+
+      .payment-error {
+        margin-bottom: 60px;
+      }
+      .back {
+        font-size: 17px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: -0.013em;
+        color: #99a2ad;
+      }
+    </style>
   </head>
   <body>
-    <form>
-      <input type="text" />
-      <button type="submit">fasdfas</button>
-      <h1></h1>
-    </form>
-
-    <script>
-      // console.log(window.opener);
-      // const payWith = () => {
-      //   const paymentRequest = {
-      //     total: {
-      //       label: 'samokat.ru',
-      //       amount: 50,
-      //     },
-      //     countryCode: 'RU',
-      //     currencyCode: 'RUB',
-      //     merchantCapabilities: ['supports3DS'],
-      //     supportedNetworks: ['masterCard', 'visa'],
-      //   };
-      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // @ts-ignore
-      //   try {
-      //     const applePaySession = new window.ApplePaySession(1, paymentRequest);
-      //     console.log(applePaySession);
-      //     const x = applePaySession.begin();
-      //     console.log(x);
-      //   } catch (error) {
-      //     console.log(12312);
-      //     console.log('erro1r', error);
-      //     document.querySelector('h1').innerHTML = `${error}`;
-      //   }
-      // };
-      // document.querySelector('form').addEventListener('submit', (e) => {
-      //   e.preventDefault();
-      //   payWith();
-      // });
-      //       setTimeout(() => {
-      //         document.querySelector('button').click();
-      //       }, 1000);
-
-      window.addEventListener("message", (event) => {
-        console.log(event.data);
-        console.log(event.origin);
-        // Do we trust the sender of this message?  (might be
-        // different from what we originally opened, for example).
-        // if (event.origin !== "http://example.com") return;
-
-        // event.source is popup
-        // event.data is "hi there yourself!  the secret response is: rheeeeet!"
-      });
-    </script>
+    <header>
+      <img src="/logo_samokat.svg" alt="Logo" />
+    </header>
+    <main>
+      <div class="payment-error">
+        <img src="/payment_error.svg" alt="Payment Error" />
+      </div>
+      <h1>Что-то пошло не так</h1>
+      <p class="back">
+        Закройте этот экран, <br />
+        чтобы вернуться в приложение
+      </p>
+    </main>
   </body>
 </html>
